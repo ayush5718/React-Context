@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function UserCard({ user }) {
   console.log(user);
@@ -12,9 +13,13 @@ function UserCard({ user }) {
           />
         </div>
         <div className="p-6 text-center">
-          <h4 className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
+          {/* routing dynamically to the specific user by their id and in the user details page we will accept the specific user by thier respective id's */}
+          <Link
+            to={`/user/${user.id}`}
+            className="block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900"
+          >
             {user.name.firstname} {user.name.lastname}
-          </h4>
+          </Link>
           <p className="block font-sans text-base antialiased font-medium leading-relaxed text-transparent bg-clip-text bg-gradient-to-tr from-blue-gray-600 to-blue-gray-400">
             CEO / Co-Founder
           </p>
